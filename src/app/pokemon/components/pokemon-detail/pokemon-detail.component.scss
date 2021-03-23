@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: row;
+
+  background-color: #f3f3f3;
+  margin: 10px;
+  padding: 40px;
+}
+
+.image-container {
+  margin-right: 30px;
+}
+
+img {
+  width: 20vw;
+}
+
+.title {
+  font-size: 38px;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.type {
+  color: #777;
+  text-transform: capitalize;
+}
+
+

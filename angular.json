@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "conceitos-app"
+    }
+  },
+  "defaultProject": "conceitos-app",
+  "cli": {
+    "analytics": false
+  }
 }
