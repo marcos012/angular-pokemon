@@ -8,6 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Cosumo de API REST;
 - Formularios (form validation, dynamic form, etc.);
 - Componentização;
-- Diretivas, pipes e eventos;
+- Comunicação, eventos, Two-way binding;
+- Diretivas, pipes;
 - Libs de componentes (Angular Material, NG bootstrap);
 - Testes unitários;
