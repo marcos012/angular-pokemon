@@ -10,5 +10,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Componentização;
 - Comunicação, eventos, Two-way binding;
 - Diretivas, pipes;
+- Autenticação: Token JWT, Auth guard, bearer token nas requisições;
 - Libs de componentes (Angular Material, NG bootstrap);
-- Testes unitários;
+- Testes unitários (Jest);
