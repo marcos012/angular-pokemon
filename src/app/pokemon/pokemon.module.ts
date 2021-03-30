@@ -6,16 +6,18 @@ import { RouterModule } from '@angular/router';
 import { PokemonService } from './services/pokemon.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [PokemonListComponent, PokemonDetailComponent],
   imports: [
     CommonModule,
+    SharedModule,
     HttpClientModule,
     RouterModule,
     PokemonRouting,
   ],
   providers: [PokemonService],
-  exports: [PokemonListComponent, RouterModule]
+  exports: [RouterModule]
 })
 export class PokemonModule { }

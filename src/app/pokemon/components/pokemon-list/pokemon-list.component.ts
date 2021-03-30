@@ -16,9 +16,7 @@ export class PokemonListComponent implements OnInit {
   ngOnInit(): void {
     this.pokemonService.getPokemons().subscribe(data => {
       data.pokemon_entries.forEach((entry) => {
-        console.log(entry);
-
-        let pokemon = new Pokemon();
+        const pokemon = new Pokemon();
         pokemon.name = entry.pokemon_species.name;
         pokemon.id = entry.entry_number;
 

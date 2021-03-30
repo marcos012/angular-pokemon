@@ -1,11 +1,10 @@
 
 
 <h1 class="title">Consumindo API</h1>
-<div class="card-container">
-  <div *ngFor="let pokemon of pokemons" class="card">
-    <a (click)="navigateToDetail(pokemon.id)" class="card-content">
-      <img src="{{ pokemon.image() }}">
-      <span>{{ pokemon.formattedName() }}</span>
-    </a>
+<div class="pokemons-container">
+    <div *ngFor="let pokemon of pokemons">
+      <a (click)="navigateToDetail(pokemon.id)" class="pokemon-content">
+        <app-card [title]="pokemon.formattedName()" [imageUrl]="pokemon.image()"></app-card>
+      </a>
   </div>
 </div>
