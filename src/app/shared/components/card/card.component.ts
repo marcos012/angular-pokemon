@@ -9,6 +9,7 @@ export class CardComponent  {
 
   @Input() title: string;
   @Input() imageUrl: string;
+  @Input() selectedCard: string;
 
   constructor() { }
 

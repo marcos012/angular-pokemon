@@ -1,7 +1,15 @@
 export class Pokemon {
   name: string;
   id: number;
+  weight: number;
   types = [];
+
+  constructor(name, id, weight, types) {
+    this.name = name;
+    this.id = id;
+    this.weight = weight;
+    this.types = types;
+  }
 
   formattedName() {
     return this.name ?

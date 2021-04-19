@@ -12,8 +12,6 @@ export class PokemonService {
   public pokemonBehavor = new BehaviorSubject<Pokemon>({} as Pokemon);
 
   notificarPokemon(pokemon: Pokemon) {
-    console.log('service', pokemon);
-
     // this.pokemonSubject.next(pokemon);
     this.pokemonBehavor.next(pokemon);
     // this.pokemonEmitter.emit(pokemon);

@@ -22,8 +22,15 @@ img {
 }
 
 .type {
-  color: #777;
   text-transform: capitalize;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.padddingHorizontal {
+  padding: 0 40px;
+}
 

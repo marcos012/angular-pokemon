@@ -1,27 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Pokemon } from '../../models/pokemon';
 import { PokemonService } from '../../services/pokemon.service';
+import { PokemonServiceHttp } from '../../services/pokemon.service.http';
 
 @Component({
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.scss']
 })
-export class PokemonDetailComponent implements OnInit {
-  pokemon = new Pokemon();
+export class PokemonDetailComponent implements OnInit, OnDestroy{
+  pokemon: Pokemon;
+  private pokemonSubscription: Subscription;
 
-  constructor(private pokemonService: PokemonService, private route: ActivatedRoute) { }
+  constructor(private pokemonService: PokemonService, private pokemonServiceHttp: PokemonServiceHttp) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
-
-    this.pokemonService.getPokemonById(id).subscribe(data => {
-      this.pokemon.name = data.name;
-      this.pokemon.id = data.id;
-      data.types.forEach((eachType) => {
-        this.pokemon.types.push(eachType.type.name);
-      });
-    })
+    this.pokemonSubscription = this.pokemonService.pokemonBehavor.subscribe(data => this.getPokemonData(data.id));
   }
+
+  getPokemonData(pokemonId: number) {
+    this.pokemonServiceHttp.getPokemonById(pokemonId).subscribe(data => {
+      const pokemonTypes = [];
+      data.types.forEach(({ type }) => pokemonTypes.push(type.name))
+
+      this.pokemon = new Pokemon(data.name, data.id, data.weight, pokemonTypes);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.pokemonSubscription.unsubscribe();
+  }
+
 }

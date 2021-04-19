@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from './card/card.component';
+import { CardComponent } from './components/card/card.component';
+import { WeightPipe } from './pipes/weight.pipe';
 
 @NgModule({
-  declarations: [CardComponent],
+  declarations: [CardComponent, WeightPipe],
   imports: [CommonModule],
-  exports: [CardComponent],
+  exports: [CardComponent, WeightPipe],
 })
 export class SharedModule { }
