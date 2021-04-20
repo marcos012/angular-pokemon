@@ -1,5 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-form',
@@ -11,7 +12,7 @@ export class PokemonFormComponent implements OnInit {
   protected formBuilder: FormBuilder;
   public formGroup: FormGroup;
 
-  constructor(private injector: Injector) {
+  constructor(private injector: Injector, private router: Router) {
     this.formBuilder = this.injector.get(FormBuilder);
   }
 
@@ -34,5 +35,6 @@ export class PokemonFormComponent implements OnInit {
     }
 
     console.log(this.formGroup.value);
+    this.router.navigate([''])
   }
 }

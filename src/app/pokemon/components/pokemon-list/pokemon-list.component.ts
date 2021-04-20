@@ -35,11 +35,11 @@ export class PokemonListComponent implements OnInit {
   selectPokemon(pokemon: Pokemon): void {
     this.pokemonService.notificarPokemon(pokemon);
     this.selectedPokemon = pokemon;
+    document.documentElement.scrollTop = 0
   }
 
 
   navigateToForm() {
     this.router.navigate(['pokemons', 'new']);
-
   }
 }

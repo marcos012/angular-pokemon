@@ -3,15 +3,13 @@
     <img [src]="pokemon.image()" [alt]="pokemon.name">
   </div>
   <div>
-
-      <p class="title">{{pokemon.name}}</p>
-
+    <p class="title">{{pokemon.name}}</p>
     <div class="row">
-      <div>
+      <div class="section">
         <label>Types:</label>
         <p *ngFor="let type of pokemon.types" class="type">{{ type }}</p>
       </div>
-      <div class="padddingHorizontal">
+      <div class="section paddding-horizontal">
         <label>Weight:</label>
         <p>{{ pokemon.weight | weight}} </p>
       </div>

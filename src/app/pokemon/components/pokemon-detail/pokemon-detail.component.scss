@@ -28,9 +28,14 @@ img {
 .row {
   display: flex;
   flex-direction: row;
+  margin-top: 20px;
 }
 
-.padddingHorizontal {
+.section {
+  line-height: 24px;
+}
+
+.paddding-horizontal {
   padding: 0 40px;
 }
 
