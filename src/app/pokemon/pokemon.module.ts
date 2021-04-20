@@ -7,17 +7,21 @@ import { PokemonServiceHttp } from './services/pokemon.service.http';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 import { SharedModule } from '../shared/shared.module';
+import { PokemonFormComponent } from './components/pokemon-form/pokemon-form.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [PokemonDetailComponent, PokemonListComponent],
+  declarations: [PokemonDetailComponent, PokemonListComponent, PokemonFormComponent],
   imports: [
     CommonModule,
     SharedModule,
     HttpClientModule,
     RouterModule,
     PokemonRouting,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [PokemonServiceHttp],
+  providers: [PokemonServiceHttp, FormBuilder],
   exports: [RouterModule]
 })
 export class PokemonModule { }

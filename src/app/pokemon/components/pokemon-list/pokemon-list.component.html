@@ -4,7 +4,6 @@
 
 <app-pokemon-detail *ngIf="selectedPokemon"></app-pokemon-detail>
 
-
 <div class="pokemons-container">
     <div *ngFor="let pokemon of pokemons">
       <a (click)="selectPokemon(pokemon)" class="pokemon-content">
@@ -12,3 +11,5 @@
       </a>
   </div>
 </div>
+
+<button class="new-pokemon-button" (click)="navigateToForm()">+</button>

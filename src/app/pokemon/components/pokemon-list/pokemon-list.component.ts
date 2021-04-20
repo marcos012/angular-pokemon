@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pokemon } from '../../models/pokemon';
 import { PokemonService } from '../../services/pokemon.service';
 import { PokemonServiceHttp } from '../../services/pokemon.service.http';
@@ -12,7 +13,11 @@ export class PokemonListComponent implements OnInit {
   pokemons = [];
   selectedPokemon: Pokemon;
 
-  constructor(private pokemonServiceHttp: PokemonServiceHttp, private pokemonService: PokemonService) { }
+  constructor(
+    private pokemonServiceHttp: PokemonServiceHttp,
+    private pokemonService: PokemonService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.pokemonServiceHttp.getPokemons().subscribe(data => {
@@ -32,4 +37,9 @@ export class PokemonListComponent implements OnInit {
     this.selectedPokemon = pokemon;
   }
 
+
+  navigateToForm() {
+    this.router.navigate(['pokemons', 'new']);
+
+  }
 }

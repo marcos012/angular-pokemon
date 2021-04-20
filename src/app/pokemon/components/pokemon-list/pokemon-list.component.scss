@@ -21,6 +21,19 @@
   cursor: pointer;
 }
 
+.new-pokemon-button {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  border: unset;
+  background-color: #cba0e6;
+  color: white;
+  font-size: 32px;
+}
+
 @media (max-width: 720px) {
   .pokemons-container {
       grid-template-columns: repeat(auto-fill, 720px);

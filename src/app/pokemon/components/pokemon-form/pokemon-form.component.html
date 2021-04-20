@@ -1,0 +1,24 @@
+<h1 class="title">Cadastre um pokemon</h1>
+
+<div class="content">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <label>Nome:</label>
+    <input
+      type="text"
+      placeholder="Nome"
+      formControlName="name"
+    />
+
+    <label>Tipos:</label>
+    <select formControlName="type">
+      <option value="grass">Grama</option>
+      <option value="fire">Fogo</option>
+      <option value="water">água</option>
+    </select>
+
+    <label>Peso:</label>
+    <input type="text" placeholder="Ex: 10.7kg" formControlName="weight" appWeightMask maxlength="6" />
+
+    <button type="submit">Cadastrar</button>
+  </form>
+</div>
