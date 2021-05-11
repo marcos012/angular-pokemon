@@ -24,7 +24,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy{
       const pokemonTypes = [];
       data.types.forEach(({ type }) => pokemonTypes.push(type.name))
 
-      this.pokemon = new Pokemon(data.name, data.id, data.weight, pokemonTypes);
+      this.pokemon = new Pokemon(data.name, data.id, data.weight, pokemonTypes, data.height);
     });
   }
 

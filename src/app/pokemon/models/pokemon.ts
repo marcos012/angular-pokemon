@@ -2,12 +2,14 @@ export class Pokemon {
   name: string;
   id: number;
   weight: number;
+  height: number;
   types = [];
 
-  constructor(name, id, weight, types) {
+  constructor(name, id, weight, types, height = undefined) {
     this.name = name;
     this.id = id;
     this.weight = weight;
+    this.height = height;
     this.types = types;
   }
 

@@ -13,7 +13,7 @@ export class PokemonServiceHttp {
     return this.http.get<Pokemon[]>('https://pokeapi.co/api/v2/pokedex/2/');
   }
 
-  getPokemonById(pokemonId: number): Observable<any> {
+  getPokemonById(pokemonId: number): Observable<Pokemon> {
     return this.http.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`);
   }
 }
