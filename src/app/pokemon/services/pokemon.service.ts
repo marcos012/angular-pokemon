@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable, EventEmitter } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { Pokemon } from '../models/pokemon';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
-  constructor(protected http: HttpClient) { }
 
-  getPokemons(): Observable<any> {
-    return this.http.get('https://pokeapi.co/api/v2/pokedex/2/');
-  }
+  // public pokemonEmitter: EventEmitter<Pokemon> = new EventEmitter();
+  public pokemonSubject = new Subject<Pokemon>();
+  public pokemonBehavor = new BehaviorSubject<Pokemon>({} as Pokemon);
 
-  getPokemonById(pokemonId: number): Observable<any> {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`);
+  notificarPokemon(pokemon: Pokemon) {
+    // this.pokemonSubject.next(pokemon);
+    this.pokemonBehavor.next(pokemon);
+    // this.pokemonEmitter.emit(pokemon);
   }
 }

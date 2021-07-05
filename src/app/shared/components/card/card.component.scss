@@ -1,0 +1,17 @@
+.card {
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-selected {
+  background: #cccccc;
+
+}

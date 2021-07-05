@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pokemon } from '../../models/pokemon';
 import { PokemonService } from '../../services/pokemon.service';
+import { PokemonServiceHttp } from '../../services/pokemon.service.http';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -10,25 +11,35 @@ import { PokemonService } from '../../services/pokemon.service';
 })
 export class PokemonListComponent implements OnInit {
   pokemons = [];
+  selectedPokemon: Pokemon;
 
-  constructor(private pokemonService: PokemonService, private router: Router) { }
+  constructor(
+    private pokemonServiceHttp: PokemonServiceHttp,
+    private pokemonService: PokemonService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.pokemonService.getPokemons().subscribe(data => {
-      data.pokemon_entries.forEach((entry) => {
-        console.log(entry);
+    this.pokemonServiceHttp.getPokemons().subscribe(data => {
+      data.pokemon_entries.slice(0, 20).forEach((entry) => {
+        const { name } = entry.pokemon_species;
+        const id = entry.entry_number;
 
-        let pokemon = new Pokemon();
-        pokemon.name = entry.pokemon_species.name;
-        pokemon.id = entry.entry_number;
+        const pokemon = new Pokemon(name, id, undefined, []);
 
         this.pokemons.push(pokemon);
       });
     });
   }
 
-  navigateToDetail(podemonId: number): void {
-    this.router.navigate(['pokemons', podemonId]);
+  selectPokemon(pokemon: Pokemon): void {
+    this.pokemonService.notificarPokemon(pokemon);
+    this.selectedPokemon = pokemon;
+    document.documentElement.scrollTop = 0
   }
 
+
+  navigateToForm() {
+    this.router.navigate(['pokemons', 'new']);
+  }
 }

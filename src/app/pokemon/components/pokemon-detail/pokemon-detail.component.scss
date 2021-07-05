@@ -22,8 +22,20 @@ img {
 }
 
 .type {
-  color: #777;
   text-transform: capitalize;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.section {
+  line-height: 24px;
+}
+
+.paddding-horizontal {
+  padding: 0 40px;
+}
 

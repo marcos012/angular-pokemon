@@ -1,10 +1,23 @@
-<div class="container">
+<div class="container" *ngIf="pokemon">
   <div class="image-container">
     <img [src]="pokemon.image()" [alt]="pokemon.name">
   </div>
   <div>
     <p class="title">{{pokemon.name}}</p>
-    <p>Types:</p>
-    <p *ngFor="let type of pokemon.types" class="type">{{ type }}</p>
+    <div class="row">
+      <div class="section">
+        <label>Types:</label>
+        <p *ngFor="let type of pokemon.types" class="type">{{ type }}</p>
+      </div>
+      <div class="section paddding-horizontal">
+        <label>Weight:</label>
+        <p>{{ pokemon.weight | weight}} </p>
+      </div>
+      <div class="section paddding-horizontal">
+        <label>Height:</label>
+        <p>{{ pokemon.height | height}} </p>
+      </div>
+    </div>
   </div>
+
 </div>
