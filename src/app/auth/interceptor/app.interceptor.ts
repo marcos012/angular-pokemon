@@ -33,7 +33,7 @@ export class AppInterceptor implements HttpInterceptor {
       });
     }
 
-    return next.handle(newRequest).pipe(catchError(async (erro) => this.handlerError(erro)));
+    return next.handle(request).pipe(catchError(async (erro) => this.handlerError(erro)));
   }
 
   handlerError = (response: HttpErrorResponse) => {

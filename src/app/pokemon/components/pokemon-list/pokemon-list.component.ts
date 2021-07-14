@@ -44,16 +44,14 @@ export class PokemonListComponent implements OnInit, OnDestroy {
 
   getPokemons(): void {
     this.pokemonServiceHttp.getPokemons().subscribe(data => {
-      console.log(data);
+      data.pokemon_entries.slice(0, 20).forEach((entry) => {
+        const { name } = entry.pokemon_species;
+        const id = entry.entry_number;
 
-      // data.pokemon_entries.slice(0, 20).forEach((entry) => {
-      //   const { name } = entry.pokemon_species;
-      //   const id = entry.entry_number;
+        const pokemon = new Pokemon(name, id, undefined, []);
 
-      //   const pokemon = new Pokemon(name, id, undefined, []);
-
-      //   this.pokemons.push(pokemon);
-      // });
+        this.pokemons.push(pokemon);
+      });
     });
   }
 

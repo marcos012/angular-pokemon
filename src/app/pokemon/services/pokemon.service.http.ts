@@ -10,8 +10,8 @@ export class PokemonServiceHttp {
   constructor(protected http: HttpClient) { }
 
   getPokemons(): Observable<any> {
-    return this.http.get('/api/v1/propostas-investimento');
-    // return this.http.get<Pokemon[]>('/api/v2/pokedex/2/');
+    // return this.http.get('/api/v1/propostas-investimento');
+    return this.http.get<Pokemon[]>('/api/v2/pokedex/2/');
   }
 
   getPokemonById(pokemonId: number): Observable<Pokemon> {
