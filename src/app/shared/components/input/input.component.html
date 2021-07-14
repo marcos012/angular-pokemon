@@ -1,0 +1,5 @@
+<div class="form-group" [ngClass]="classeCss">
+  <label [attr.for]="id">{{ label }}</label>
+  <input [type]="type" [id]="id" [readonly]="!!isReadOnly" [(ngModel)]="value" [placeholder]="placeholder" />
+</div>
+

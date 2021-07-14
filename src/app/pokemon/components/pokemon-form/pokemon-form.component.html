@@ -1,31 +1,47 @@
 <div class="content">
   <h1 class="title">Cadastre um pokemon</h1>
 
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="pokemon-form">
-    <div class="form-group">
+  <form [formGroup]="modelForm" (ngSubmit)="onSubmit()" class="pokemon-form">
+    <!-- <div class="form-group">
       <label>Nome:</label>
       <input
         type="text"
         placeholder="Nome"
         formControlName="name"
       />
-    </div>
+    </div> -->
 
-    <div class="form-group">
+    <app-input id="nome" formControlName="name" placeholder="Nome" label="Nome" [classeCss]="aplicaCssErro('name')"></app-input>
+    <!-- <div class="form-group">
       <label>Tipo:</label>
       <select formControlName="type">
         <option value="grass">Grama</option>
         <option value="fire">Fogo</option>
         <option value="water">Água</option>
       </select>
-    </div>
+    </div> -->
 
     <div class="form-group">
-      <label>Peso:</label>
-      <input type="text" placeholder="Ex: 10.7kg" formControlName="weight" appWeightMask maxlength="6" />
+      <app-dropdown formControlName="type" [items]="types" label="Tipo" id="tipo" [classeCss]="aplicaCssErro('type')"></app-dropdown>
+    </div>
+
+    <!-- <app-input id="nome" formControlName="weight" placeholder="Ex: 10.7kg" label="Peso" [directive]="appWeightMask"></app-input> -->
+
+    <div class="form-group" [ngClass]="aplicaCssErro('weight')">
+      <label for="weight">Peso:</label>
+      <input
+        type="text"
+        placeholder="Ex: 10.7kg"
+        formControlName="weight"
+        appWeightMask
+        maxlength="6"
+        id="weight"
+      />
     </div>
 
 
     <button type="submit">Cadastrar</button>
+
+    <pre>{{ modelForm.value | json }}</pre>
   </form>
 </div>

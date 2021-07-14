@@ -1,0 +1,13 @@
+<div  class="form-group" [ngClass]="classeCss">
+  <label [attr.for]="id">{{ label }}</label>
+  <select [id]="id" (change)="selectItem($event.target.value)" [(ngModel)]="selectedValue" [disabled]="isDisabled">
+    <option [value]="undefined">Selecione um pokemon</option>
+    <!-- <option [value]="item.id" *ngFor="let item of items" [selected]="item.name == selectedValue">{{ item.name }}</option> -->
+    <option
+      *ngFor="let item of items"
+      [value]="item[chave] ? item[chave] : item"
+    >
+      {{ item[valor] ? item[valor] : item }}
+    </option>
+</select>
+</div>

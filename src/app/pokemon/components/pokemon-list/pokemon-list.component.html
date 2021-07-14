@@ -1,12 +1,19 @@
 
 
 <h1 class="title">Pokemons</h1>
+<h2 class="title" *ngIf="usuarioService.username">Olá {{ usuarioService.username }}, o que gostaria de fazer?</h2>
 
-<app-pokemon-detail *ngIf="selectedPokemon"></app-pokemon-detail>
+<button class="btn-sair" *ngIf="usuarioService.username" (click)="logOut()">Sair</button>
+
+
+<app-pokemon-detail *ngIf="deveExibirDetalhes"></app-pokemon-detail>
+
+<!-- <app-dropdown [items]="pokemons" (selectedItem)="selectPokemon($event)" [selectedValue]="restoredPokemon"></app-dropdown> -->
+<app-dropdown [items]="pokemons" (selectedItem)="selectPokemon($event)" [selectedValue]="restoredPokemon" chave="id" valor="name"></app-dropdown>
 
 <div class="pokemons-container">
     <div *ngFor="let pokemon of pokemons">
-      <a (click)="selectPokemon(pokemon)" class="pokemon-content">
+      <a (click)="selectPokemon(pokemon.id)" class="pokemon-content">
         <app-card [title]="pokemon.formattedName()" [imageUrl]="pokemon.image()" [selectedCard]="selectedPokemon ? selectedPokemon.formattedName() : ''"></app-card>
       </a>
   </div>

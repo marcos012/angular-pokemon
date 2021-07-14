@@ -6,7 +6,7 @@ import { NgControl } from '@angular/forms';
 })
 export class WeightMaskDirective {
 
-  constructor(private el: ElementRef, private zone: NgZone, private control: NgControl) { }
+  constructor(private el: ElementRef) { }
 
   @HostListener('focus', ['$event'])
   onFocus(event: Event) {
@@ -20,12 +20,42 @@ export class WeightMaskDirective {
 
   @HostListener('ngModelChange', ['$event'])
   onModelChange(event) {
-    this.weightFormat(this.el.nativeElement.value);
+    const {value} = this.el.nativeElement;
+
+    this.weightFormat(value);
   }
 
   weightFormat(weight: string) {
-    const value = weight.replace(',', '');
 
+
+    // let value = weight;
+    // const integer = weight.split('.')[0];
+
+
+    // value = value.replace(/\D/g, "");
+    // value = value.replace(/^[0]+/, "");
+
+    // if(value.length <= 3 || !integer) {
+    //     if(value.length === 1) value = '0.00' + value;
+    //     if(value.length === 2) value = '0.0' + value;
+    //     if(value.length === 3) value = '0.' + value;
+    // } else {
+    //     value = value.replace(/^(\d{1,})(\d{3})$/, "$1.$2.$3");
+    // }
+
+    // return value;
+
+
+    const value = this.el.nativeElement.value.replace(',', '');
+
+    // console.log('value', value);
+
+
+    // const formattedValue = weight.length > 3
+    //   ? `${value.slice(0, value.length - 1)},${value.slice(value.length - 2, value.length - 1)}`
+    //   : weight;
+
+    // // return weight.length > 3 ? value.replace(/^(\d{1,})(\d{2})$/, "$1,$2") : weight;
     this.el.nativeElement.value = value.replace(/^(\d{1,})(\d{2})$/, "$1,$2");
   }
 

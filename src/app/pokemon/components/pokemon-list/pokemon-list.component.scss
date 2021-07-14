@@ -22,6 +22,17 @@
   cursor: pointer;
 }
 
+.btn-sair {
+  position: fixed;
+  bottom: 50rem;
+  right: 3rem;
+  width: 56px;
+  height: 25px;
+  border-radius: 10%;
+  border: solid 1px #c3c3c3;
+  color: #444444;
+}
+
 .new-pokemon-button {
   position: fixed;
   bottom: 3rem;
@@ -37,7 +48,6 @@
 
 @media (max-width: 720px) {
   .pokemons-container {
-      grid-template-columns: repeat(auto-fill, 720px);
+    grid-template-columns: repeat(auto-fill, 720px);
   }
-
 }

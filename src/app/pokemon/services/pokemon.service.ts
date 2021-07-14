@@ -7,13 +7,16 @@ import { Pokemon } from '../models/pokemon';
 })
 export class PokemonService {
 
-  // public pokemonEmitter: EventEmitter<Pokemon> = new EventEmitter();
-  public pokemonSubject = new Subject<Pokemon>();
-  public pokemonBehavor = new BehaviorSubject<Pokemon>({} as Pokemon);
+  previousPokemon;
 
-  notificarPokemon(pokemon: Pokemon) {
-    // this.pokemonSubject.next(pokemon);
-    this.pokemonBehavor.next(pokemon);
-    // this.pokemonEmitter.emit(pokemon);
+  public pokemonRestore = new Subject<Pokemon>();
+  public pokemonBehavor = new BehaviorSubject<number>(undefined);
+
+  notificarPokemon(pokemonId: number) {
+    this.pokemonBehavor.next(pokemonId);
+  }
+
+  notificarPokemonRestaurado(pokemon) {
+    this.pokemonRestore.next(pokemon);
   }
 }

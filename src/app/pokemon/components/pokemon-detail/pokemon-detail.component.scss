@@ -15,10 +15,22 @@ img {
   width: 20vw;
 }
 
+.title-container {
+  justify-content: space-between;
+  align-items: center;
+}
+
 .title {
   font-size: 38px;
   color: #333;
   text-transform: capitalize;
+}
+
+.back-button {
+  background: transparent;
+  border: solid 2px #333;
+  padding: 0 10px;
+  height: 30px;
 }
 
 .type {
@@ -38,4 +50,3 @@ img {
 .paddding-horizontal {
   padding: 0 40px;
 }
-

@@ -5,8 +5,10 @@ import { AppComponent } from './app.component';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { RouterModule } from '@angular/router';
 import { AppRouting } from './app.routing';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth/auth.module';
+import { AppInterceptor } from './auth/interceptor/app.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,16 @@ import { SharedModule } from './shared/shared.module';
     PokemonModule,
     SharedModule,
     HttpClientModule,
-    AppRouting
+    AppRouting,
+    AuthModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

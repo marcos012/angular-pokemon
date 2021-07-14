@@ -3,7 +3,10 @@
     <img [src]="pokemon.image()" [alt]="pokemon.name">
   </div>
   <div>
-    <p class="title">{{pokemon.name}}</p>
+    <div class="row title-container">
+      <p class="title">{{pokemon.name}}</p>
+      <button class="back-button" (click)="restorePokemon()">Voltar</button>
+    </div>
     <div class="row">
       <div class="section">
         <label>Types:</label>

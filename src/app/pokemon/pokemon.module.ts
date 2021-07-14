@@ -9,6 +9,7 @@ import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-deta
 import { SharedModule } from '../shared/shared.module';
 import { PokemonFormComponent } from './components/pokemon-form/pokemon-form.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WeightPipe } from '../shared/pipes/weight.pipe';
 
 @NgModule({
   declarations: [PokemonDetailComponent, PokemonListComponent, PokemonFormComponent],
@@ -21,7 +22,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [PokemonServiceHttp, FormBuilder],
+  providers: [PokemonServiceHttp, FormBuilder, WeightPipe],
   exports: [RouterModule]
 })
 export class PokemonModule { }
